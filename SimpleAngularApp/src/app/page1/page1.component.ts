@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { DataService, DataServiceInterface } from '../data.service';
 import { Book } from '../Model/Book';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,7 @@ export class Page1Component implements OnInit, OnDestroy {
 
   subscription : Subscription;
   subscription2 : Subscription;
-  constructor(private dataService : DataService ) { 
+  constructor(@Inject('DataServiceInterface')private dataService : DataServiceInterface ) { 
     //this.dataService = dataService
   }
  

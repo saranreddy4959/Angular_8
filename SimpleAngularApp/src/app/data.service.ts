@@ -1,10 +1,19 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Book } from './Model/Book';
 
+export interface DataServiceInterface{
+  books : Array<Book>;
+  bookAddedEvent: EventEmitter<Book>;
+  bookDeleteEvent: EventEmitter<Book>;
+  addBook(book : Book);
+  deleteBook();
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataService implements DataServiceInterface{
 
   books : Array<Book>;
   bookAddedEvent = new EventEmitter<Book>();
